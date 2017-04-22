@@ -18,12 +18,6 @@
   with_items: '{{ mariadb_download_files }}'
   tags: ['skip_ansible_lint']
 
-#- debug:
-#    msg: "{{ item.0.database }} == {{ item.1.db }} and ( {{ item.1.changed }} or {{ (item.0.force is defined and item.0.force) }})"
-#  with_nested:
-#    - mariadb_import_files
-#    - _mariadb_databases.results
-
 - name: Import files
   mysql_db:
     state: import
